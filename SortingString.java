@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Collections;
 
 /*
  * 3/5/13
@@ -31,19 +32,11 @@ public class SortingString {
 
     public static String randomSort(String s)
     {
-        Random rnd = new Random();
-        for (int i = s.length() - 1; i > 0; i--)
-        {
-            int index = rnd.nextInt(i + 1);
-            char[] chars = s.toCharArray();
+        char[] chars = s.toCharArray();
+        Collections.shuffle(chars);
 
-            char a = chars[index];
-            chars[index] = chars[i];
-            chars[i] = a;
-
-            s = String.valueOf(chars);
-        }
-
+        s = String.valueOf(chars);
+        
         System.out.println(s);
         return s;
     }
